@@ -6,18 +6,18 @@
 using namespace std;
 
 vector<int> v[10001];
-vector<int> visit(10001);
+vector<int> visits(10001);
 vector<int> cycle;
 
 // u : 현재 노드, p : 이전 노드
 int finded = -1;
 void FindCycle(int u, int p){
-    if (visit[u] == 1) {
+    if (visits[u] == 1) {
         finded = u;
         cycle.push_back(u);
         return;
     }
-    visit[u]=1;
+    visits[u]=1;
     for(auto i:v[u]){
         if (i==p) continue;
         FindCycle(i, u);
