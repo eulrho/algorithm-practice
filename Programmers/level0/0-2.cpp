@@ -1,3 +1,4 @@
+// a와 b 출력하기
 #include <iostream>
 
 using namespace std;
