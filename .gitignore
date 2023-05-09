@@ -1,2 +1,8 @@
 .vs
 .vscode
+.DS_Store
+
+# Programmers
+Programmers/.idea
+Programmers/cmake-build-debug
+Programmers/CMakeLists.txt
