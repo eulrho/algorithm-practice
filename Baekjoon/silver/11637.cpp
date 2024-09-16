@@ -1,4 +1,4 @@
-// 안기 투표
+// 인기 투표
 #include <iostream>
 #include <vector>
 #include <algorithm>
