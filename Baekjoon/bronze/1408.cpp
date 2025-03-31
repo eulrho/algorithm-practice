@@ -10,10 +10,10 @@ string timeToString(int time)
 	else return to_string(time);
 }
 
-string findEndTime(string current)
+string findEndTime(string start)
 {
-	int hour = stoi(current.substr(0, 2)) + 24;
-	return to_string(hour) + current.substr(2);
+	int hour = stoi(start.substr(0, 2)) + 24;
+	return to_string(hour) + start.substr(2);
 }
 
 string findTimeDiff(int *start, int *end)
