@@ -32,7 +32,7 @@ int main()
 		}
 
 		while (i < size && isSpaceOrParentheses(result[i])) i++;
-		if (islower(result[i])) result[i] = (char)toupper(result[i]);
+		if (i < size && islower(result[i])) result[i] = (char)toupper(result[i]);
 	}
 
 	cout << result;
