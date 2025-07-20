@@ -12,7 +12,7 @@ int main()
 	long long tmp = a * b / c;
 
 	string result = to_string(tmp);
-	string decimal = to_string((double)(a * b - tmp * c) / c);
+	string decimal = to_string((double)((a * b) % c) / c);
 	cout << result + decimal.substr(1);
 	return (0);
 }
