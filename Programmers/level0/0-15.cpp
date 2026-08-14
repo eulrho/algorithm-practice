@@ -1,51 +1,30 @@
 // 옹알이 (1)
-#include <iostream>
 #include <string>
 #include <vector>
+#include <set>
 
 using namespace std;
 
-int solution(vector<string> babbling) {
-    int answer = 0;
-    for(string s : babbling){
-        while(1){
-            if (s.size() == 0) {
-                answer++;
-                break;
-            }
-            if(s[0]=='a'){
-                if(s.substr(0, 3)=="aya") {
-                    s.erase(0,3);
-                }
-                else break;
-            }
-            else if (s[0]=='y'){
-                if(s.substr(0,2)=="ye") {
-                    s.erase(0,2);
-                }
-                else break;
-            }
-            else if (s[0]=='w'){
-                if(s.substr(0,3)=="woo") {
-                    s.erase(0,3);
-                }
-                else break;
-            }
-            else if (s[0]=='m'){
-                if(s.substr(0,2)=="ma") {
-                    s.erase(0,2);
-                }
-                else break;
-            }
-            else break;
-        }
+bool check_str(set<string> &s_str, string &str) {
+    int size = (int)str.size(), idx = 0;
+    while (idx < size) {
+        if (s_str.find(str.substr(idx, 2)) != s_str.end())
+            idx += 2;
+        else if (s_str.find(str.substr(idx, 3)) != s_str.end())
+            idx += 3;
+        else return false;
     }
-    return answer;
+    return true;
 }
 
-int main() {
-    vector<string> babbling = {"ayaye", "uuuma", "ye", "yemawoo", "ayaa"};
-    int result = solution(babbling);
-
-    cout << result;
+int solution(vector<string> babbling) {
+    int answer = 0;
+    
+    set<string> s_str = {"aya", "ye", "woo", "ma"};
+    for (auto b : babbling) {
+        int size = b.size();
+        if (size == 1) continue ;
+        if (check_str(s_str, b)) answer++;
+    }
+    return answer;
 }
